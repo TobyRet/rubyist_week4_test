@@ -1,3 +1,9 @@
+require 'bundler/setup'
+require 'twilio-ruby'
+
+account_sid = 'ACdc37c6022146a7917a7fe9a1f8364e39'
+auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+
 class Takeaway
 
   attr_reader :menu
