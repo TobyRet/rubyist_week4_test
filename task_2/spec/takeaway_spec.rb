@@ -8,11 +8,16 @@ describe 'Takeaway' do
     expect(takeaway.menu['pizza']).to be(15)
   end
 
-  xit "correctly sum total an order" do
-    expect(takeaway.total_order(['pizza', 'steak'])).to eq(18)
+  it "checks an order" do
+    expect(takeaway.total_order({'pizza' => 4, 'steak' => 4}, 72)).to eq(true)
   end
 
-  it "correctly sum total an order" do
-    expect(takeaway.total_order({'pizza' => 2, 'steak' => 2}, 36)).to eq(true)
+  it "raises an error if the order total is incorrect" do
+    expect(takeaway.total_order({'pizza' => 2, 'steak' => 2}, 30)).to raise_error
   end
+
+  xit "initiates a text if an order is totalled correctly" do
+    expect(takeaway.send_text).to eq(true)
+  end
+
 end
