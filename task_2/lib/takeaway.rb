@@ -1,8 +1,5 @@
 #require 'bundler/setup'
-#require 'twilio-ruby'
-#
-#account_sid = 'ACdc37c6022146a7917a7fe9a1f8364e39'
-#auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+require 'twilio-ruby'
 
 class Takeaway
 
@@ -18,7 +15,19 @@ class Takeaway
   end
 
   def confirm_order
+    #account_sid = 'ACdc37c6022146a7917a7fe9a1f8364e39'
+    #auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+    #client = Twilio::REST::Client.new account_sid, auth_token
+    #client.account.sms.messages.create(
+    #  :from => '+14159341234',
+    #  :to => '+447931984419',
+    #  :body => 'Hey there, your order was placed and be deliver #before' + delivery_time)
     true
+    
+  end
+
+  def delivery_time
+    (Time.now + 3600).strftime("%I:%M%p")
   end
 
 end
