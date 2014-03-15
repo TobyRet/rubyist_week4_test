@@ -14,7 +14,11 @@ class Takeaway
 
   def order_sum_check (order_items, total)
     check_total = order_items.map { |k, v| @menu[k] * v }.inject { |sum, n| sum + n }
-    check_total != total ? (raise('Total wrong'); false) : true
+    check_total != total ? (raise 'Total wrong'; false) : (confirm_order; true)
+  end
+
+  def confirm_order
+    true
   end
 
 end

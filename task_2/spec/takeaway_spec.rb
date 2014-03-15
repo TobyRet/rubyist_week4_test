@@ -16,4 +16,10 @@ describe 'Takeaway' do
     expect{takeaway.order_sum_check({'pizza' => 2, 'steak' => 2}, 30)}.to raise_error
   end
 
+  it "should send an order confirmation text" do
+    Takeaway.any_instance.stub(:confirm_order).and_return(true)
+    takeaway.order_sum_check({'pizza' => 4, 'steak' => 4}, 72)
+    expect(takeaway.confirm_order).to eq(true)
+  end
+
 end
