@@ -15,15 +15,12 @@ class Takeaway
   end
 
   def confirm_order
-    #account_sid = 'ACdc37c6022146a7917a7fe9a1f8364e39'
-    #auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
-    #client = Twilio::REST::Client.new account_sid, auth_token
-    #client.account.sms.messages.create(
-    #  :from => '+14159341234',
-    #  :to => '+447931984419',
-    #  :body => 'Hey there, your order was placed and be deliver #before' + delivery_time)
-    true
-    
+    account_sid = 'AC53976239c0d66b3c6315d1c7b0ff1fd1'
+    client = Twilio::REST::Client.new account_sid, AUTH_TOKEN
+    client.account.sms.messages.create(
+      :from => '+441823245040',
+      :to => '+447931984419',
+      :body => 'Hey there, your order was placed and will be delivered before' + delivery_time)  
   end
 
   def delivery_time

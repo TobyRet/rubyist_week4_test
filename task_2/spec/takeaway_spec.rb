@@ -9,6 +9,7 @@ describe 'Takeaway' do
   end
 
   it "checks an order total" do
+    Takeaway.any_instance.stub(:confirm_order).and_return(true) 
     expect(takeaway.order_sum_check({'pizza' => 4, 'steak' => 4}, 72)).to eq(true)
   end
 
@@ -17,7 +18,7 @@ describe 'Takeaway' do
   end
 
   it "should send an order confirmation text" do
-    Takeaway.any_instance.stub(:confirm_order).and_return(true)
+    Takeaway.any_instance.stub(:confirm_order).and_return(true) 
     takeaway.order_sum_check({'pizza' => 4, 'steak' => 4}, 72)
     expect(takeaway.confirm_order).to eq(true)
   end
