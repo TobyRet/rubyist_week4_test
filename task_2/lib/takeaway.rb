@@ -15,8 +15,7 @@ class Takeaway
   end
 
   def confirm_order
-    account_sid = 'AC53976239c0d66b3c6315d1c7b0ff1fd1'
-    client = Twilio::REST::Client.new account_sid, AUTH_TOKEN
+    client = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
     client.account.sms.messages.create(
       :from => '+441823245040',
       :to => '+447931984419',
