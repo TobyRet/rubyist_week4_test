@@ -16,11 +16,11 @@ class Takeaway
 
   def confirm_order
     account_sid = 'AC53976239c0d66b3c6315d1c7b0ff1fd1'
-    client = Twilio::REST::Client.new account_sid, AUTH_TOKEN
+    client = Twilio::REST::Client.new account_sid, ENV['AUTH_TOKEN']
     client.account.sms.messages.create(
       :from => '+441823245040',
       :to => '+447931984419',
-      :body => 'Hey there, your order was placed and will be delivered before' + delivery_time)  
+      :body => 'Last week I clocked up 70 hours in study. Now I can make an app that sends texts. F.cool. I am exhausted but loving it :-)')  
   end
 
   def delivery_time
